@@ -1,0 +1,29 @@
+version: '3'
+services:
+  zenfighter:
+    build: .
+    ports:
+    - 8000:8000
+    volumes:
+    - .:/app
+    links:
+    - mysqldb
+    environment:
+      dbHost: "172.17.0.2"
+      dbPort: "3306"
+      dbName: "zenfighter"
+      dbUser: "root"
+      dbpass: "root"
+  mysqldb:
+    image: mysql:5.7
+    # volumes:
+    # - /sql:/sql
+    ports:
+      - 3306:3306
+    # command: --init-file /sql/init.sql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: zenfighter
+      MYSQL_USER: myUser
+      MYSQL_PASSWORD: password
+      # MYSQL_ROOT_HOST: 173.18.0.3
