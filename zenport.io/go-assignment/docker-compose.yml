@@ -15,9 +15,7 @@ services:
       dbUser: "newguy"
       dbPass: "password123"
   mysqldb:
-    image: mysql:5.7
-    volumes:
-    - /sql:/docker-entrypoint-initdb.d
+    build: ./sql/docker/
     ports:
       - 3306:3306
     environment:
