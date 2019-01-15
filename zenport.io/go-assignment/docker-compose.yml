@@ -16,11 +16,10 @@ services:
       dbPass: "password123"
   mysqldb:
     image: mysql:5.7
-    # volumes:
-    # - /sql:/sql
+    volumes:
+    - /sql:/docker-entrypoint-initdb.d
     ports:
       - 3306:3306
-    # command: --init-file /sql/init.sql
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: zenfighter
