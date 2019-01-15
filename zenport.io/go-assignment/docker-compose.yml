@@ -9,11 +9,11 @@ services:
     links:
     - mysqldb
     environment:
-      dbHost: "172.17.0.2"
+      dbHost: "mysqldb"
       dbPort: "3306"
       dbName: "zenfighter"
-      dbUser: "root"
-      dbpass: "root"
+      dbUser: "newguy"
+      dbPass: "password123"
   mysqldb:
     image: mysql:5.7
     # volumes:
@@ -24,6 +24,5 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: zenfighter
-      MYSQL_USER: myUser
-      MYSQL_PASSWORD: password
-      # MYSQL_ROOT_HOST: 173.18.0.3
+      MYSQL_USER: newguy
+      MYSQL_PASSWORD: password123
