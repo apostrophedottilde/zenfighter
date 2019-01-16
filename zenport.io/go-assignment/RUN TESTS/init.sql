@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS `zenfighter`.`fighters` (
+CREATE TABLE IF NOT EXISTS `zenfightertest`.`fighters` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(16) NOT NULL,
   `strength` INT(11) NOT NULL,
