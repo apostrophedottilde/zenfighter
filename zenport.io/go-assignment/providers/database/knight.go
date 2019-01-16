@@ -94,9 +94,6 @@ func (repo *knightRepository) FindAll() []*domain.Knight {
 		knights = append(knights, k)
 	}
 
-	fmt.Println(err)
-	fmt.Println(res)
-
 	db.Close()
 	return knights
 }
@@ -119,8 +116,6 @@ func (repo *knightRepository) Save(knight *domain.Knight) int64 {
 	if err != nil {
 		panic(err)
 	}
-	fmt.Println(err)
-	fmt.Println(res)
 	db.Close()
 
 	id, errr := res.LastInsertId()
@@ -157,10 +152,5 @@ func (repo *knightRepository) makeKnight(id string, name string, strength int, w
 }
 
 func (repo *knightRepository) connectURL() string {
-	fmt.Println(dbHost)
-	fmt.Println(dbPort)
-	fmt.Println(dbName)
-	fmt.Println(dbUser)
-	fmt.Println(dbPass)
 	return dbUser + ":" + dbPass + "@tcp(" + dbHost + ":" + dbPort + ")/" + dbName
 }
