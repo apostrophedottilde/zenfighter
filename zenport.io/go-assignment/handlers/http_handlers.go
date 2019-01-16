@@ -21,14 +21,13 @@ func HandleFindAll(e engine.Engine) http.Handler {
 		knights := e.ListKnights()
 
 		if knights == nil {
-			resp.WriteHeader(http.StatusNotFound)
+			resp = buildResponse(resp, http.StatusOK)
+			resp.Write([]byte("[]"))
 			return
 		}
 
 		resp = buildResponse(resp, http.StatusOK)
-
 		data, _ := json.Marshal(knights)
-
 		resp.Write([]byte(data))
 	})
 }
@@ -36,9 +35,7 @@ func HandleFindAll(e engine.Engine) http.Handler {
 func HandleFindOne(e engine.Engine) http.Handler {
 	return http.HandlerFunc(func(resp http.ResponseWriter, req *http.Request) {
 		id := strings.TrimPrefix(req.URL.Path, "/knight/")
-
 		retStatus := http.StatusOK
-
 		k, error := e.GetKnight(id)
 
 		if error != nil || k == nil {
