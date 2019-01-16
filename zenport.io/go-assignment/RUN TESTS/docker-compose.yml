@@ -10,14 +10,14 @@ services:
     - mysqldb_test
     environment:
       dbHost: "mysqldb_test"
-      dbPort: "3307"
+      dbPort: "3306"
       dbName: "zenfightertest"
       dbUser: "newguy"
       dbPass: "password123"
   mysqldb_test:
     build: .
     ports:
-      - 3307:3306
+      - 3306:3306
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: zenfightertest

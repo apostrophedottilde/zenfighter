@@ -14,7 +14,6 @@ var (
 )
 
 func TestMain(m *testing.M) {
-
 	kr = knightRepository{}
 	code := m.Run()
 	os.Exit(code)
@@ -35,8 +34,8 @@ func TestFind(t *testing.T) {
 
 	g := kr.Find(data)
 
-	if g.Name != "negwuy" {
-
+	if g.Name != "newguy" {
+		t.Error("Was expecting the names to match.")
 	}
 }
 
