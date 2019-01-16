@@ -7,7 +7,7 @@ services:
     volumes:
     - .:/app
     links:
-    - mysqldb_test
+    - mysqldb
     environment:
       dbHost: "mysqldb"
       dbPort: "3306"
